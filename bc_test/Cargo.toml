@@ -1,0 +1,21 @@
+[package]
+name = "KhaliSisiTest"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0.71"
+axum = "0.6.18"
+dotenv = "0.15.0"
+dotenv_codegen = "0.15.0"
+fake = {version="2.6.1",features=["derive"]}
+hyper = "0.14.26"
+rand = "0.8.5"
+serde = "1.0.163"
+serde_derive = "1.0.163"
+serde_json = "1.0.96"
+sqlx={version="0.6.3",features = ["postgres", "chrono","json","runtime-async-std-native-tls"]}
+tokio = {version="1.28.1",features=["full"]}
+tower = {version="0.4.13",features = ["full"]}
