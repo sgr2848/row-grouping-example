@@ -31,10 +31,11 @@ pub fn generate_random_payments(amt: usize) -> Vec<Payments> {
 
 pub async fn seed_db(pg_conn: &PgPool) -> anyhow::Result<()> {
     let mut tx = pg_conn.begin().await?;
-    let data = generate_random_payments(100000);
+    let data = generate_random_payments(1000);
     for i in 0..data.len() {
         let er = query!("INSERT INTO payments(refund_id,customer,country,amount,payment_currency,discount_amount) values($1,$2,$3,$4,$5,$6)",data[i].refund_id,data[i].customer,data[i].country,data[i].amount,data[i].payment_currency,data[i].discount_amount).execute(&mut tx).await.expect("Failed to execute transaction");
     }
     tx.commit().await?;
+    dbg!("This ran");
     Ok(())
 }

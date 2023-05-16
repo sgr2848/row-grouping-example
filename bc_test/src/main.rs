@@ -16,7 +16,7 @@ async fn main() {
         .await
         .expect("Cannot connect to database");
 
-    // let seeding = seeder::seeders::seed_db(&pg_pool).await.expect("msg");
+    let _seeding = seeder::seeders::seed_db(&pg_pool).await.expect("msg");
     // run it with hyper on localhost:3000
     let app = Router::new()
         .route("/data", post(handler::handler::handle_request))
