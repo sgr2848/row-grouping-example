@@ -21,7 +21,7 @@ const AccordinGroup = (props) => {
       console.error(error);
     }
   };
-
+  
   useEffect(() => {
     fetchData();
   }, []);

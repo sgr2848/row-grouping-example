@@ -8,7 +8,7 @@ const Accordin2 = ({ data, cur_depth, col_values }) => {
   const depthData = rowTableCtx.depth_data;
   let [curDepth, setCurDepth] = useState(cur_depth);
   const [resData, setResData] = useState([]);
-  //   const [colValues, setColValues] = useState([...col_values, data.name]);
+
   const colValues = [...col_values, data.name];
 
   const viewMore = async () => {
