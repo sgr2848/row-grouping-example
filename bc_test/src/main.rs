@@ -4,10 +4,10 @@ pub mod handler;
 pub mod model;
 pub mod seeder;
 pub mod service;
-use axum::{http::Method, routing::post, Router};
+use axum::{http::{Method,header}, routing::post, Router};
 use hyper::http::HeaderValue;
 use sqlx::postgres::PgPoolOptions;
-use tower_http::cors::CorsLayer;
+use tower_http::cors::{CorsLayer,Any};
 
 #[tokio::main]
 async fn main() {
@@ -24,8 +24,9 @@ async fn main() {
         .route("/data", post(handler::handler::handle_request))
         .layer(
             CorsLayer::new()
-                .allow_origin("*".parse::<HeaderValue>().unwrap())
-                .allow_methods([Method::GET, Method::POST]),
+                .allow_origin(Any)
+                .allow_headers([header::CONTENT_TYPE,header::ACCEPT])
+                .allow_methods([Method::GET, Method::POST,Method::OPTIONS]),
         )
         .with_state(pg_pool);
     axum::Server::bind(&"0.0.0.0:3000".parse().unwrap())
