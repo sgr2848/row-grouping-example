@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import Accordin from "./Accordin";
+import Accordin2 from "./Accordin2";
 import RowTableContext from "./store/row-table-context";
 
 const AccordinGroup = (props) => {
@@ -38,7 +39,13 @@ const AccordinGroup = (props) => {
     <div className="w-full">
       {data.length > 0 &&
         data.map((dt, i) => (
-          <Accordin data={dt} depth_data={props.data} key={i} />
+          <Accordin2
+            data={dt}
+            cur_depth={1}
+            col_values={[]}
+            depth_data={props.data}
+            key={i}
+          />
         ))}
     </div>
   );

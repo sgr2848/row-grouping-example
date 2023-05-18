@@ -39,7 +39,6 @@ const RowTable = () => {
   }
 
   const addToFilter = (ti) => {
-    // setFilter((data) => [...data, ti]);
     rowTableCtx.setFilters([...rowTableCtx.filters, ti]);
     rowTableCtx.setTableHeaders([...tableInfo].filter((data) => data != ti));
 
