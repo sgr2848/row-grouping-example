@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import Accordin from "./Accordin";
 import Accordin2 from "./Accordin2";
 import RowTableContext from "./store/row-table-context";
 

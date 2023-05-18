@@ -4,9 +4,6 @@ import "../styles/styles.css";
 import RowTable from "./RowTable";
 import { RowTableContextProvider } from "./store/row-table-context";
 const App = () => {
-  const [filters, setFilter] = React.useState({});
-  const [tableData, setTableData] = React.useState({});
-  const [data, setData] = React.useState({});
 
   React.useEffect(() => {}, []);
   return (
