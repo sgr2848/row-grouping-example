@@ -12,6 +12,7 @@ const Accordin2 = ({ data, cur_depth, col_values }) => {
   const colValues = [...col_values, data.name];
 
   const viewMore = async () => {
+    if (resData.length > 0) return null;
     try {
       const response = await axios.post("http://localhost:3000/data", {
         ...rowTableCtx.depth_data,

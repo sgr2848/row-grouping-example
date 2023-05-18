@@ -3,8 +3,6 @@ import axios from "axios";
 import AccordinGroup from "./AccordinGroup";
 import RowTableContext from "./store/row-table-context";
 
-let countr=0
-
 const RowTable = () => {
   const rowTableCtx = useContext(RowTableContext);
   const depthData = rowTableCtx.depth_data;
@@ -12,8 +10,6 @@ const RowTable = () => {
   const tableInfo = rowTableCtx.tableHeaders;
   const [isLoading, setLoading] = useState(false);
   const [tableData, setTableData] = useState([]);
-  countr+=1
-  console.log("Counter",countr)
 
   const fetchData = async () => {
     try {
@@ -22,7 +18,6 @@ const RowTable = () => {
         "http://localhost:3000/data",
         depthData
       );
-      console.log(response.data);
       setLoading(false);
       setTableData(response.data.data);
     } catch (error) {
@@ -55,7 +50,7 @@ const RowTable = () => {
       <p className="mb-4">
         Filters:{" "}
         {filters.map((fd, i) => (
-          <span className="rounded-lg p-2 bg-white text-black" key={i}>
+          <span className="rounded-lg p-2 bg-white text-black ml-3" key={i}>
             {fd.header}
           </span>
         ))}
@@ -63,7 +58,6 @@ const RowTable = () => {
       {tableData.length > 0 && (
         <div className="flex flex-wrap w-full">
           {depthData.max_depth >= 2 && <div className="w-1/5">Groups</div>}
-          {console.log(tableInfo)}
           {tableInfo.map((ti, i) => (
             <div key={i} onClick={() => addToFilter(ti)} className={"w-1/5"}>
               {ti.header}

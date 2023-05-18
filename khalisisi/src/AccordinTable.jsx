@@ -8,7 +8,6 @@ const AccordinTable = ({ rowTableCtx, colData }) => {
           {rowTableCtx.tableHeaders.map((dt, i) => (
             <div key={i} className="w-1/5">
               {dta[dt.data]}
-              {console.log(dta[dt.data])}
             </div>
           ))}
         </div>

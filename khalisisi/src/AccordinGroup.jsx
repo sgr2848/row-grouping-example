@@ -9,10 +9,6 @@ const AccordinGroup = (props) => {
   const [isLoading, setLoading] = useState(false);
   const [data, setData] = useState([]);
 
-  let coulmn_depth = 1;
-  let col_depth_1_data = [];
-  let col_depth_2_data = [];
-
   const fetchData = async () => {
     try {
       setLoading(true);
